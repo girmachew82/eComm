@@ -33,4 +33,11 @@ class UserController extends Controller
         return redirect('/login');
 
     }
+    function users()
+    {
+      $users = User::all();
+      $no=1;
+    return view('users',['users'=>$users,'no'=>$no]);
+
+    }
 }

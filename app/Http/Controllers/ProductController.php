@@ -32,7 +32,6 @@ class ProductController extends Controller
       {
           //return $req->input();
           $cart = new Cart();
-
           $cart ->user_id = $req->session()->get('user')['id'];
           $cart ->product_id = $req->product_id;
           $cart->save();
@@ -42,7 +41,6 @@ class ProductController extends Controller
       {
           return redirect('/login');
       }
-
   }
   function cartItem()
   {
