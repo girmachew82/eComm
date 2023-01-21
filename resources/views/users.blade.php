@@ -15,11 +15,12 @@
             <th scope="row">{{ $no++ }}</th>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
-            <td>{{ $user->id }}Edit|{{ $user->id }}Delete</td>
+            <td><a href="edit_user/{{ $user->id }}" target="_blank" rel="noopener noreferrer">{{ $user->id }}Edit|</a>{{ $user->id }}Delete</td>
           </tr>
         @endforeach
-      
+
 
     </tbody>
   </table>
+  {{ $users->links() }}
 @endsection

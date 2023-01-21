@@ -35,7 +35,8 @@ class UserController extends Controller
     }
     function users()
     {
-      $users = User::all();
+      //$users = User::all();
+      $users = User::Paginate(2);
       $no=1;
     return view('users',['users'=>$users,'no'=>$no]);
 

@@ -12,12 +12,16 @@ class ProductController extends Controller
 {
   function index()
   {
-      $products = Product::all();
-      return view('product',['products'=>$products]);
+      $products = Product::all();//select * FROM Product;
+      //return view('product',['products'=>$products]);
+     // return view('product')->with('products',$products);
+     return view('product',compact('products',$products));
+
+
   }
   function detail($id)
   {
-      $product= Product::find($id);
+      $product= Product::find($id);//select * from Product WHERE id = $id;
       return view('detail',['product'=>$product]);
   }
   function search(Request $req)
@@ -34,7 +38,7 @@ class ProductController extends Controller
           $cart = new Cart();
           $cart ->user_id = $req->session()->get('user')['id'];
           $cart ->product_id = $req->product_id;
-          $cart->save();
+          $cart->save();//INSERT INTO Cart ('user_id','product_id') VALUES('$user_id','$product_id')
           return redirect()->back()->with('success', 'Successfully added to the cart!');
         }
       else
