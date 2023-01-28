@@ -19,7 +19,7 @@ Route::get('/login', function () {
     return view('login');
 });
 Route::post('/login',[UserController::class,'login']);
-Route::get('/detail/{id}',[ProductController::class,'detail']);
+Route::get('/detail/{id}',[ProductController::class,'detail'])->name('detail');
 Route::get('/search',[ProductController::class,'search']);
 Route::get('add_to_cart',[ProductController::class,'addToCart']);
 Route::get('/logout',function(){
